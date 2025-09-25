@@ -126,19 +126,7 @@ export default class MyPlugin extends Plugin {
 		}
 
 		// 运行查询
-		const query = `
-        TABLE WITHOUT ID
-            signal_name AS "信号名",
-            chinese_name AS "中文名称",
-            source AS "源设备",
-            hw_interface AS "硬件接口",
-            chinese_deactive_value AS "非激活状态",
-            chinese_active_value AS "激活状态",
-            chinese_default_value AS "默认状态"
-        FROM "dd_test/AFCU_dd.csv"
-        WHERE startswith(signal_name, "hi_") AND contains(["构型模块"], source)
-        SORT split(signal_name, "_")[0] ASC, number(split(signal_name, "_")[1]) ASC
-    `;
+		const query = ``;
 
 		const result = await dv.api.query(query);
 		if (!result.successful) {
